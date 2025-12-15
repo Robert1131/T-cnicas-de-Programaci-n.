@@ -1,0 +1,128 @@
+# Desarrollo de Ejemplos de Técnicas de Programación
+
+## Introducción
+
+En esta tarea se desarrollan ejemplos prácticos de las principales **técnicas de programación orientada a objetos**: **abstracción, encapsulación, herencia y polimorfismo**. El objetivo es aplicar los conceptos aprendidos en clase mediante código claro, organizado y bien documentado.
+
+Los ejemplos están pensados para ser subidos a un repositorio personal de GitHub, siguiendo buenas prácticas de programación y una estructura ordenada por carpetas.
+
+---
+
+## 1. Abstracción
+
+La abstracción consiste en identificar las características y comportamientos esenciales de un objeto, ocultando los detalles innecesarios.
+
+### Ejemplo 
+
+// Clase abstracta
+public abstract class Figura {
+    public abstract double calcularArea();
+}
+
+// Clase concreta
+public class Circulo extends Figura {
+    private double radio;
+
+    public Circulo(double radio) {
+        this.radio = radio;
+    }
+
+    @Override
+    public double calcularArea() {
+        return Math.PI * radio * radio;
+    }
+}
+```
+
+**Explicación:**
+La clase `Figura` define el comportamiento general (calcular área), mientras que `Circulo` implementa el detalle específico.
+
+---
+
+## 2. Encapsulación
+
+La encapsulación protege los datos de un objeto, permitiendo el acceso solo a través de métodos controlados.
+
+### Ejemplo 
+
+public class CuentaBancaria {
+    private double saldo;
+
+    public CuentaBancaria(double saldoInicial) {
+        this.saldo = saldoInicial;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void depositar(double monto) {
+        if (monto > 0) {
+            saldo += monto;
+        }
+    }
+}
+```
+
+**Explicación:**
+El atributo `saldo` es privado y solo puede modificarse mediante métodos públicos, garantizando seguridad y control.
+
+---
+
+## 3. Herencia
+
+La herencia permite que una clase reutilice atributos y métodos de otra clase.
+
+### Ejemplo 
+
+public class Animal {
+    public void hacerSonido() {
+        System.out.println("El animal hace un sonido");
+    }
+}
+
+public class Perro extends Animal {
+    @Override
+    public void hacerSonido() {
+        System.out.println("El perro ladra");
+    }
+}
+```
+
+**Explicación:**
+La clase `Perro` hereda de `Animal` y redefine su comportamiento.
+
+---
+
+## 4. Polimorfismo
+
+El polimorfismo permite que un mismo método tenga comportamientos distintos según el objeto que lo invoque.
+
+### Ejemplo 
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal1 = new Perro();
+        Animal animal2 = new Gato();
+
+        animal1.hacerSonido();
+        animal2.hacerSonido();
+    }
+}
+
+class Gato extends Animal {
+    @Override
+    public void hacerSonido() {
+        System.out.println("El gato maúlla");
+    }
+}
+```
+
+**Explicación:**
+Aunque las variables son de tipo `Animal`, cada objeto responde de forma diferente al mismo método.
+
+---
+
+## Conclusión
+
+Mediante estos ejemplos se demuestra la correcta aplicación de las técnicas de programación orientada a objetos. Estas técnicas permiten desarrollar software más organizado, reutilizable y fácil de mantener.
